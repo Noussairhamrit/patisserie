@@ -14,6 +14,12 @@ import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
 
 
+import{AngularFireModule} from 'angularfire2';
+import{AngularFireDatabaseModule} from 'angularfire2/database';
+import { environment } from 'src/environments/environment';
+import { TestComponent } from './pages/test/test.component';
+
+
 @NgModule({
   imports: [
     BrowserAnimationsModule,
@@ -22,12 +28,15 @@ import { ComponentsModule } from './components/components.module';
     ComponentsModule,
     NgbModule,
     RouterModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule
   ],
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-    AuthLayoutComponent
+    AuthLayoutComponent,
+    TestComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
